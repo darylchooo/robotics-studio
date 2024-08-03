@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<robot name="myrobot">
+  
+  <link name="base">
+    <visual>
+      <geometry>
+        <mesh filename="base.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0.2 0.1 0.8 1"/>
+      </material>
+    </visual>
+    <inertial>
+      <origin xyz="0.01063 -0.00794 0.008"/>
+      <mass value="0.845"/>
+        <inertia ixx="0.0029487131"
+                 ixy="-0.0000226996" iyy="0.0017123847"
+                 ixz="-0.0000195945" iyz="0.0002666369" izz="0.0036916036"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="base.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_thigh1">
+     <visual>
+       <geometry>
+         <mesh filename="left_thigh.STL" scale="0.001 0.001 0.001"/>
+       </geometry>
+       <material name="green">
+         <color rgba="0.2 0.6 0.6 1"/>
+       </material>
+     </visual>
+     <collision>
+        <geometry>
+          <mesh filename="left_thigh.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+     </collision>
+     <inertial>
+       <origin xyz="0.09401 -0.06982 -0.0238"/>
+       <mass value="0.07719"/>
+         <inertia ixx="0.0000535617"
+                  ixy="0.00000027652" iyy="0.000013375"
+                  ixz="-0.00000000286" iyz="-0.0000019919" izz="0.0000557627"/>
+     </inertial>
+  </link>
+    
+  <joint name="left_hip1" type="revolute">
+    <axis xyz="-1 0 0"/>
+    <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" />
+    <origin xyz="-0.090872982 -0.011621175 0.093853045"/>
+    <parent link="base"/>
+    <child link="left_thigh1"/>
+  </joint>
+
+  <link name="left_thigh2">
+     <visual>
+       <geometry>
+         <mesh filename="left_thigh.STL" scale="0.001 0.001 0.001"/>
+       </geometry>
+       <material name="white">
+         <color rgba="1 1 1 1"/>
+       </material>
+     </visual>
+     <collision>
+        <geometry>
+          <mesh filename="left_thigh.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+     </collision>
+     <inertial>
+       <origin xyz="0.09435 0.08593 -0.02379"/>
+       <mass value="0.07719"/>
+         <inertia ixx="0.00005356182"
+                  ixy="0.00000029607" iyy="0.000013375"
+                  ixz="0.00000001875" iyz="-0.00000198913" izz="0.00005576256"/>
+     </inertial>
+  </link>
+  
+  <joint name="left_hip2" type="revolute">
+    <axis xyz="-1 0 0"/>
+    <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" />
+    <origin xyz="0.063127018 -0.011621175 0.093853045"/>
+    <parent link="base"/>
+    <child link="left_thigh2"/>
+  </joint>
+
+  <link name="right_thigh1">
+     <visual>
+       <geometry>
+         <mesh filename="right_thigh.STL" scale="0.001 0.001 0.001"/>
+       </geometry>
+       <material name="orange">
+         <color rgba="1 0.3 0.1 1"/>
+       </material>
+     </visual>
+     <collision>
+        <geometry>
+          <mesh filename="right_thigh.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+     </collision>
+     <inertial>
+       <origin xyz="-0.07152 -0.07077 -0.0238"/>
+       <mass value="0.07719"/>
+         <inertia ixx="0.00005356168"
+                  ixy="-0.00000027761" iyy="0.000013375"
+                  ixz="0.00000000166" iyz="-0.0000019921" izz="0.00005576272"/>
+     </inertial>
+  </link>
+  
+  <joint name="right_hip1" type="revolute">
+    <axis xyz="1 0 0"/>
+    <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" />
+    <origin xyz="-0.090872982 -0.011621175 -0.071346955"/>
+    <parent link="base"/>
+    <child link="right_thigh1"/>
+  </joint>
+
+  <link name="right_thigh2">
+     <visual>
+       <geometry>
+         <mesh filename="right_thigh.STL" scale="0.001 0.001 0.001"/>
+       </geometry>
+       <material name="pink">
+         <color rgba="1 0.1 0.6 1"/>
+       </material>
+     </visual>
+     <collision>
+        <geometry>
+          <mesh filename="right_thigh.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+     </collision>
+     <inertial>
+       <origin xyz="-0.07202 0.08593 -0.02379"/>
+       <mass value="0.07719"/>
+         <inertia ixx="0.00005356206"
+                  ixy="-0.00000030542" iyy="0.00001337502"
+                  ixz="-0.00000002910" iyz="-0.00000198806" izz="0.00005576233"/>
+     </inertial>
+  </link>
+  
+  <joint name="right_hip2" type="revolute">
+    <axis xyz="1 0 0"/>
+    <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" />
+    <origin xyz="0.063127018 -0.011621175 -0.071346955"/>
+    <parent link="base"/>
+    <child link="right_thigh2"/>
+  </joint>
+
+  <link name="left_calf1">
+     <visual>
+       <geometry>
+         <mesh filename="calf.STL" scale="0.001 0.001 0.001"/>
+       </geometry>
+       <origin rpy="0 3.14159 0.523599"/>
+       <material name="black">
+         <color rgba="0 0 0 1"/>
+       </material>
+     </visual>
+     <collision>
+        <geometry>
+          <mesh filename="calf.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+     </collision>
+     <inertial>
+       <origin xyz="0.09401 -0.06982 -0.0238"/>
+       <mass value="0.07719"/>
+         <inertia ixx="0.0000535617"
+                  ixy="0.00000027652" iyy="0.000013375"
+                  ixz="-0.00000000286" iyz="-0.0000019919" izz="0.0000557627"/>
+     </inertial>
+  </link>
+  
+  <joint name="left_knee1" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" />
+    <origin xyz="0.0452 -0.0517 0"/>
+    <parent link="left_thigh1"/>
+    <child link="left_calf1"/>
+  </joint>
+
+  <link name="left_calf2">
+     <visual>
+       <geometry>
+         <mesh filename="calf.STL" scale="0.001 0.001 0.001"/>
+       </geometry>
+       <origin rpy="0 3.14159 0.523599"/>
+       <material name="orange">
+         <color rgba="1 0.3 0.1 1"/>
+       </material>
+     </visual>
+     <collision>
+        <geometry>
+          <mesh filename="calf.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+     </collision>
+     <inertial>
+       <origin xyz="0.09435 0.08593 -0.02379"/>
+       <mass value="0.07719"/>
+         <inertia ixx="0.00005356182"
+                  ixy="0.00000029607" iyy="0.000013375"
+                  ixz="0.00000001875" iyz="-0.00000198913" izz="0.00005576256"/>
+     </inertial>
+  </link>
+  
+  <joint name="left_knee2" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" />
+    <origin xyz="0.0452 -0.0517 0"/>
+    <parent link="left_thigh2"/>
+    <child link="left_calf2"/>
+  </joint>
+
+  <link name="right_calf1">
+     <visual>
+       <geometry>
+         <mesh filename="calf.STL" scale="0.001 0.001 0.001"/>
+       </geometry>
+       <origin rpy="0 3.14159 0.523599"/>
+       <material name="pink">
+         <color rgba="1 0.1 0.6 1"/>
+       </material>
+     </visual>
+     <collision>
+        <geometry>
+          <mesh filename="calf.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+     </collision>
+     <inertial>
+       <origin xyz="-0.07152 -0.07077 -0.0238"/>
+       <mass value="0.07719"/>
+         <inertia ixx="0.00005356168"
+                  ixy="-0.00000027761" iyy="0.000013375"
+                  ixz="0.00000000166" iyz="-0.0000019921" izz="0.00005576272"/>
+     </inertial>
+  </link>
+  
+  <joint name="right_knee1" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" />
+    <origin xyz="0.0452 -0.0517 0"/>
+    <parent link="right_thigh1"/>
+    <child link="right_calf1"/>
+  </joint>
+
+  <link name="right_calf2">
+     <visual>
+       <geometry>
+         <mesh filename="calf.STL" scale="0.001 0.001 0.001"/>
+       </geometry>
+       <origin rpy="0 3.14159 0.523599"/>
+       <material name="green">
+         <color rgba="0.2 0.6 0.6 1"/>
+       </material>
+     </visual>
+     <collision>
+        <geometry>
+          <mesh filename="calf.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+     </collision>
+     <inertial>
+       <origin xyz="-0.07202 0.08593 -0.02379"/>
+       <mass value="0.07719"/>
+         <inertia ixx="0.00005356206"
+                  ixy="-0.00000030542" iyy="0.00001337502"
+                  ixz="-0.00000002910" iyz="-0.00000198806" izz="0.00005576233"/>
+     </inertial>
+  </link>
+  
+  <joint name="right_knee2" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" />
+    <origin xyz="0.0452 -0.0517 0"/>
+    <parent link="right_thigh2"/>
+    <child link="right_calf2"/>
+  </joint>
+
+</robot>
