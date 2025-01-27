@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Nov 9 2023
-
-@author: Daryl Choo Chia Ler
-"""
-
 import pybullet as p
 import time
 import pybullet_data
@@ -12,10 +5,10 @@ from math import sin, cos
 
 physicsClient = p.connect(p.GUI) # or p.DIRECT for non-graphical version
 p.setAdditionalSearchPath(pybullet_data.getDataPath()) # optionally
-p.setGravity(0, 0, -9.8)
+p.setGravity(0, 0, -9.81)
 groundId = p.loadURDF("plane.urdf")
 robotStartPos = [0, 0, 1]
-robotStartOrientation = p.getQuaternionFromEuler([1.5708, 0, 1.5708])
+robotStartOrientation = p.getQuaternionFromEuler([1.5708, 0, -1.5708])
 robotId = p.loadURDF("myrobot.urdf.txt", robotStartPos, robotStartOrientation)
 mode = p.POSITION_CONTROL
 jointIndex = 0 # first joint is number 0
